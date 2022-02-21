@@ -1,0 +1,24 @@
+---
+quay:
+  url:
+  token:
+  dry_run: false
+  exclude_projects:
+    - group/project
+  default_expiration: 336h
+  expiration:
+    - name: release
+      regex: ^(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*)){2}$
+      expire: 0s
+    - name: double release
+      regex: ^(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*)){2}(-(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*)){2})$
+      expire: 0s
+    - name: latest
+      regex: ^latest((\+|-)[0-9A-Za-z\.-]+){0,2}$
+      expire: 0s
+    - name: meta release
+      regex: ^(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*)){2}((\+|-)[0-9A-Za-z\.-]+){1,3}$
+      expire: 336h
+    - name: development
+      regex: ^(dev(el(op(ment)?)?)?|[0-9a-zA-Z-]*-rc)$
+      expire: 192h

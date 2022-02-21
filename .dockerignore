@@ -1,0 +1,8 @@
+.vscode/
+.venv/
+.git/
+extras
+.env
+.env.example
+.gitignore
+README.md
